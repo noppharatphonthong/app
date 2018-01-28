@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      แอปพลิเคชันการประปา
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form novalidate [formGroup]="meterForm" (ngSubmit)="meter()">
+        <ion-list>
+          
+            <ion-item>
+              <ion-label stacked>บ้านเลขที่</ion-label>
+              <ion-input formControlName="address" type="text"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label stacked>หมู่ที่</ion-label>
+              <ion-input formControlName="villageno" type="text"></ion-input> 
+            </ion-item>
+    
+            <div padding>
+                <button ion-button block type="submit" [disabled]="!meterForm.valid">ตรวจสอบผู้ใช้น้ำ</button>  
+            </div> 
+    
+          </ion-list> 
+        </form>
+
+  <ion-card class="profile-top">
+    <ion-row>
+      <ion-col>
+        <div class="profile-photo">
+          <img (click)="onClickUpload()" #img src="http://www.pkicon.com/icons/35387/Add-256.png">
+          <input type="file" 
+          id="uploadFile" 
+          #filess 
+          name="uploadFile" 
+          style="display: none;" 
+          accept="image/*" 
+          (change)="changeListener($event)">
+        </div>
+        <button ion-button (click)="onClickUpload()" block clear color="royal">เพิ่มรูปภาพ</button>
+        
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <form novalidate [formGroup]="problemForm" (ngSubmit)="problem()" *ngFor="let prod of data">
+      <ion-list>
+          
+          <ion-item>
+              <ion-label stacked>Villageid</ion-label>
+              <ion-input value="{{prod.house_id}}" formControlName="villageid" [readonly]="isReadonly" type="text"></ion-input>
+            </ion-item>
+
+
+
+          <ion-item>
+            <ion-label stacked>ปัญหา</ion-label>
+            <ion-input formControlName="prob" type="text"></ion-input>
+          </ion-item>
+    
+            <div padding>
+                <button ion-button block type="submit" [disabled]="!problemForm.valid">บันทึก</button>  
+            </div> 
+    
+          </ion-list> 
+        </form>
+     
+</ion-content>

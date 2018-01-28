@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      แอปพลิเคชันการประปา
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form novalidate [formGroup]="moneyForm" (ngSubmit)="money()">
+    <ion-list>
+      
+        <ion-item>
+          <ion-label stacked>บ้านเลขที่</ion-label>
+          <ion-input formControlName="address" type="text"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label stacked>หมู่ที่</ion-label>
+          <ion-input formControlName="villageno" type="text"></ion-input> 
+        </ion-item>
+
+        <div padding>
+            <button ion-button block type="submit" [disabled]="!moneyForm.valid">ตรวจสอบผู้ใช้น้ำ</button>  
+        </div> 
+
+      </ion-list> 
+    </form>
+
+    <!-- <ion-list>
+          <ion-col *ngFor="let prod of data" class="favCol">
+            <div>
+                <p>
+                  {{prod.name}}
+                  {{prod.lastname}}
+                </p>   
+            </div>
+          </ion-col>
+        </ion-list> -->
+
+        <form novalidate [formGroup]="addmoneyForm" (ngSubmit)="addmoney()" *ngFor="let prod of data">
+          
+          <ion-list>
+              
+              <ion-item>
+                  <ion-label stacked>ชื่อผู้ใช้</ion-label>
+                  <ion-input value="{{prod.name}} {{prod.lastname}}" formControlName="name_last" [readonly]="isReadonly" type="text"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label stacked>Villageid</ion-label>
+                <ion-input value="{{prod.house_id}}" formControlName="villageid" [readonly]="isReadonly" type="text"></ion-input>
+              </ion-item>
+  
+                <ion-item>
+                  <ion-label stacked>ค้างชำระ</ion-label>
+                  <ion-input value="{{prod.owe}}" formControlName="owe" [readonly]="isReadonly" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label stacked>ค่าน้ำเดือนปัจจุบัน</ion-label>
+                  <ion-input value="{{prod.current_money}}" formControlName="current_money" [readonly]="isReadonly" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label stacked>รวมเป็นเงิน</ion-label>
+                  <ion-input value="{{prod.total_money}}" formControlName="total_money" [readonly]="isReadonly" type="text"></ion-input>
+                </ion-item>
+            
+              <ion-item>
+                <ion-label stacked>ยืนยันจำนวนค่าบริการ</ion-label>
+                <ion-input formControlName="savemoney" type="text"></ion-input>
+              </ion-item>
+        
+                <div padding>
+                    <button ion-button block type="submit" [disabled]="!addmoneyForm.valid">บันทึก</button>  
+                </div> 
+        
+              </ion-list> 
+            </form>
+           
+
+</ion-content>

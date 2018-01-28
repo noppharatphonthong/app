@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      แอปพลิเคชันการประปา 
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+  
+  <ion-content padding>
+      <ion-card class="profile-top">
+          <ion-row>
+            <ion-col>
+              <div class="profile-photo">
+                <img #img src="http://services.totiti.net/playstore/wp-content/uploads/2017/06/1514.png">
+                
+              </div>
+              ผู้ใช้ทั่วไป
+            </ion-col>
+          </ion-row>
+        </ion-card>
+    <form novalidate [formGroup]="loginForm" (ngSubmit)="login()">
+        <ion-list>
+          
+            <ion-item>
+              <ion-label stacked>บ้านเลขที่</ion-label>
+              <ion-input formControlName="address" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>หมู่ที่</ion-label>
+              <ion-input formControlName="villageno" type="text"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label stacked>รหัสผ่าน</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input> 
+            </ion-item>
+    
+            <div padding>
+                <button ion-button block type="submit" [disabled]="!loginForm.valid">เข้าสู่ระบบ</button>  
+            </div> 
+    
+          </ion-list>
+        </form>
+
+  </ion-content>

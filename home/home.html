@@ -1,0 +1,60 @@
+<ion-header>
+ <ion-navbar>
+ <button ion-button menuToggle>
+ <ion-icon name="menu"></ion-icon>
+ </button>
+ <ion-title>ถ่ายรูป</ion-title>
+ </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card class="profile-top">
+    <ion-row>
+      <ion-col>
+        <div class="profile-photo">
+          <img (click)="onClickUpload()" #img src="http://placehold.it/256x256">
+          <input type="file" 
+          id="uploadFile" 
+          #filess 
+          name="uploadFile" 
+          style="display: none;" 
+          accept="image/*" 
+          (change)="changeListener($event)">
+        </div>
+        <button ion-button (click)="onClickUpload()" block clear color="royal">Change profile picture</button>
+        
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+      
+    <ion-list class="profile-detail" *ngFor="let prod of auth">
+    <ion-row >
+      
+      <ion-col no-padding >
+        <form  novalidate [formGroup]="myForm" (ngSubmit)="login()">
+        <ion-item >
+      <ion-label stacked><ion-icon name="md-contact"></ion-icon>Name</ion-label>
+        <ion-input type="text" value="{{prod.name}}" formControlName="var_name" placeholder="กรุณากรอกข้อมูล"></ion-input>
+      </ion-item>
+      <ion-item >
+      <ion-label stacked><ion-icon name="md-call"></ion-icon>Phone Number</ion-label>
+        <ion-input type="text" value="{{prod.tel}}" formControlName="var_tel" placeholder="กรุณากรอกข้อมูล"></ion-input> 
+      </ion-item>
+      <ion-item >
+      <ion-label stacked><ion-icon name="md-call"></ion-icon>Facebook</ion-label>
+        <ion-input type="text" value="{{prod.facebook}}" formControlName="var_facebook" placeholder="กรุณากรอกข้อมูล"></ion-input>
+      </ion-item>
+      <ion-item >
+      <ion-label stacked><ion-icon name="md-call"></ion-icon>Email</ion-label>
+        <ion-input type="text" value="{{prod.email}}" formControlName="var_email" placeholder="กรุณากรอกข้อมูล"></ion-input>
+      </ion-item>
+      <button id="mapTabDefaultPage-button1" ion-button color="positive" block type="submit" [disabled]="!myForm.valid">
+      Sent
+    </button>
+    </form> 
+     </ion-col>
+    </ion-row>    
+    
+  </ion-list>
+</ion-content>

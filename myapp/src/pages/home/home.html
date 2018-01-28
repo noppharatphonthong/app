@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      แอปพลิเคชันการประปา
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card class="profile-top">
+        <ion-row>
+          <ion-col>
+            <div class="profile-photo">
+              <img #img src="http://services.totiti.net/playstore/wp-content/uploads/2017/06/1514.png">
+              
+            </div>  
+          </ion-col>
+        </ion-row>
+      </ion-card>
+  <button ion-button block (click)="nextadmin()">เข้าสู่ระบบพนักงาน</button>
+  <button ion-button block (click)="nextoffline()">บันทึกข้อมูลแบบไม่ใช้ อินเทอร์เน็ต</button>
+
+
+  <button ion-button block (click)="nextuser()">เข้าสู่ระบบ</button>
+</ion-content>

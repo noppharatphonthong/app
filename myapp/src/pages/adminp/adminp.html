@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>
+        แอปพลิเคชันการประปา
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+      <ion-list>
+          <ion-col *ngFor="let prod of adp" class="favCol">
+            <div>
+                <p style = "border: 5px solid Gray; padding: 3%;">
+                    villageid  {{prod.house_id}}<br/>
+
+                    <img style = "border: 2px solid Gray; padding: 3%;" src="{{prod.img}}"><br/>
+                    ปัญหา<br/>
+                    {{prod.problem}}<br/>
+                    แจ้งเมื่อ {{prod.datatime}}
+                <button (click)="nextp(prod.id)">แก้ไขแล้ว</button>
+                </p>   
+            </div>
+            
+          </ion-col>
+        </ion-list>
+
+  </ion-content>

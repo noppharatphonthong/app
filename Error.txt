@@ -1,0 +1,30 @@
+npm install -g cordova
+npm install -g ionic
+npm uninstall cordova ionic
+
+https://apps.ionic.io/login
+Sutthiphongnuanma@gmail.com
+e053959178
+
+เซ็ตที่อยู่ใน ionic.config.json
+26ca7482
+72fcdec1
+
+ERROR SyntaxError: Unexpected token < in JSON at position 0 =======> URL ผิด / json() ผิด 
+
+ERROR Error: Cannot find a differ supporting object '[object Object]' of type 'object'. NgFor only supports binding to Iterables such as Arrays.
+
+เพิ่ม Array
+data2:any=[];
+ this.isbnsource.getBooks(this.isbn).subscribe(
+          data => { this.data = data.json();
+     this.data2 = Array.of(this.data); 
+
+
+เซ็ต Apacha Config อย่าลืมไปเซ็ต localhost/phpmyadmin ที่ User accounts root % Nopassword
+Alias /phpmyadmin "C:/xampp/phpMyAdmin/"
+    <Directory "C:/xampp/phpMyAdmin">
+        AllowOverride AuthConfig
+        Require all granted
+        ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
+    </Directory>

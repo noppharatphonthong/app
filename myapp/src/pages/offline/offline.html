@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      แอปพลิเคชันการประปา 
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+  
+  <ion-content padding>
+    บันทึกข้อมูล ลงลงเครื่อง
+    <form novalidate [formGroup]="loginForm" (ngSubmit)="login()">
+        <ion-list>
+          
+            <ion-item>
+              <ion-label stacked>บ้านเลขที่</ion-label>
+              <ion-input formControlName="address" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>หมู่ที่</ion-label>
+              <ion-input formControlName="villageno" type="text"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label stacked>ค่า Meter</ion-label>
+              <ion-input formControlName="savemeter" type="savemeter"></ion-input> 
+            </ion-item>
+    
+            <div padding>
+                <button ion-button block type="submit" [disabled]="!loginForm.valid">บันทึกลงเครื่อง</button>  
+            </div> 
+    
+          </ion-list>
+        </form>
+
+       
+
+        <ion-col *ngFor="let prod of results" >
+       
+          บ้านเลขที่ {{prod.address}}
+          หมู่ที่ {{prod.villageno}}
+          ค่า Meter {{prod.savemeter}}<br/>
+          
+      </ion-col> 
+
+      <button ion-button block (click)="delete(prod)">ลบข้อมูล</button>
+      
+เข้าสู่ระบบเพื่อบันทึกข้อมูล ลงฐานข้อมูล
+      <form novalidate [formGroup]="loginaForm" (ngSubmit)="logina()">
+        <ion-list>
+          
+            <ion-item>
+              <ion-label stacked>Username</ion-label>
+              <ion-input formControlName="username" type="text"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label stacked>Password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input> 
+            </ion-item>
+    
+            <div padding>
+                <button ion-button block type="submit" [disabled]="!loginaForm.valid">เข้าสู่ระบบ</button>  
+            </div> 
+    
+          </ion-list>
+        </form>
+
+        <ion-col *ngFor = "let prod2 of data2" >
+          
+             {{prod2.status2}}
+
+             กดปุ่ม บันทึกลงฐานข้อมูล เพื่อบันทึกข้อมูลทั้งหมด
+            
+          <button ion-button block (click)="savem()">บันทึกลงฐานข้อมูล</button>
+
+         </ion-col>
+   
+     
+       
+     
+           
+
+         
+
+     
+
+  </ion-content>
